@@ -7,12 +7,11 @@ const ToDoDisplay = () => {
 
   function addToDos(e) {
     e.preventDefault();
-    // Trim the newItem and check if it's not empty before adding
     if (newItem.trim().length > 0) {
         setToDos([...toDos, newItem]);
-        setNewItem(""); // Reset newItem to clear the input field.
+        setNewItem("");
     } else {
-        alert("Please enter a non-empty value."); // Optionally alert the user
+        alert("Please enter a non-empty value.");
     }
 }
 
@@ -26,7 +25,6 @@ const ToDoDisplay = () => {
 		setToDos(filteredToDos);
 	}
 
-	// console.log("toDos", toDos);
 	return (
 		<div className="pl-6 pt-5">
 			<form

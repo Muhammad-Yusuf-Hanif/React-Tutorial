@@ -1,16 +1,29 @@
-type Props={
-  text: string
-}
+// Define the properties specific to the Heading component
+type HeadingProps = React.HTMLAttributes<HTMLDivElement> & {
+  text: string;
+  additionalClasses?: string;
+  size?: "sm" | "md";
+};
 
-const Heading = ({text}:Props) => {
+const Heading = ({ text, additionalClasses = "", size = "md", ...rest }: HeadingProps) => {
+  // Mapping size options to corresponding text sizes
+  const sizeClasses = {
+    sm: "text-2xl text-black",
+    md: "text-4xl",
+    lg: "text-6xl"
+  };
+
   return (
-    <div className='pl-5 pt-3 text-4xl text-emerald-400 font-serif'>
+    <div
+      className={`pt-3 font-serif text-emerald-400 ${sizeClasses[size]} ${additionalClasses}`}
+      {...rest}
+    >
       {text}
     </div>
-  )
-}
+  );
+};
 
-export default Heading
+export default Heading;
 
-// This is a reusable component that was created to display text for any further announced 
-// components in  the website
+// This Heading component is designed to be a reusable utility for displaying
+// text with configurable sizes and additional styling, ideal for various sections of a website.

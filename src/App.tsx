@@ -1,4 +1,5 @@
 import Counter from "./miniProjects/Counter/Counter";
+import CounterClone from "./miniProjects/CounterClone/CounterClone";
 import ToDoApp from "./miniProjects/Todoapp/ToDoApp";
 import API from "./miniProjects/WeatherAPI/API";
 
@@ -8,6 +9,7 @@ function App() {
 			<Counter/>
 			<ToDoApp/>
 			<API/>
+			<CounterClone />
 		</>
 	);
 }

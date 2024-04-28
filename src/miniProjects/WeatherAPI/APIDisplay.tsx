@@ -1,17 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, ChangeEvent } from "react";
 import Button from "../../common/Button";
 
+type WeatherInfo = {
+	name: string;
+	main: {
+		temp: number;
+	};
+	weather: [{ description: string }];
+};
+
 const APIDisplay = () => {
-	const [weather, setWeather] = useState(null);
-	const [city, setCity] = useState();
+	const [weather, setWeather] = useState<WeatherInfo | null>()
+	const [city, setCity] = useState("");
 	const [error, setError] = useState("");
 
 	const apiKey = "96ae4f0ff15d3b006deaf259d7638b26";
 	const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-	function cityInput(e) {
+	function cityInput(e: ChangeEvent<HTMLInputElement>) {
 		setCity(e.target.value);
-    setError('')
+		setError("");
+		// setWeather(null);
 	}
 
 	function searchCity() {
@@ -25,8 +34,17 @@ const APIDisplay = () => {
 				setWeather(data);
 			} catch (error) {
 				console.error("Fetching weather data failed:", error);
-        console.log(typeof error.toString())
-        setError(error.toString() + " Please enter a valid city")
+
+				// Check if the error is an instance of Error before calling toString()
+				if (error instanceof Error) {
+					console.log(typeof error.toString()); 
+					setError(error.toString() + " Please enter a valid city");
+				} else {
+					// Handle cases where error might not be an Error object
+					console.log(typeof error); // Check what type it is
+					setError("An unexpected error occurred. Please enter a valid city");
+				}
+
 				setWeather(null);
 			}
 		};
@@ -49,7 +67,8 @@ const APIDisplay = () => {
 					<p>Condition: {weather.weather[0].description}</p>
 				</div>
 			)}
-      <h1 className="ml-7 text-red-500 font-bold">{error}</h1>
+
+			<h1 className="ml-7 text-red-500 font-bold">{error}</h1>
 		</>
 	);
 };

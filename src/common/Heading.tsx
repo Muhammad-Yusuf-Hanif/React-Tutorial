@@ -10,7 +10,7 @@ const Heading = ({ text, additionalClasses = "", size = "md", ...rest }: Heading
   const sizeClasses = {
     sm: "text-2xl text-black",
     md: "text-4xl",
-    lg: "text-6xl"
+    lg: "text-6xl, ml-3"
   };
 
   return (

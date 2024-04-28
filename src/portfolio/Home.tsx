@@ -36,11 +36,11 @@ function Home() {
 					<Text text="Projects" />
 					<div className="mt-4">
 						<div className="flex gap-1 w-[110%] justify-between">
-							<img src="../assets/react.png" />
-							{/* <Button additionalClasses="w-1/2"
+							{/* <img src="../assets/react.png" /> */}
+							<Button additionalClasses="w-1/2"
 								text="React Projects"
 								onClick={() => viewProjects("/projects")}
-							/> */}
+							/>
 							<Button
 								additionalClasses="w-1/2"
 								text="Gym Website"

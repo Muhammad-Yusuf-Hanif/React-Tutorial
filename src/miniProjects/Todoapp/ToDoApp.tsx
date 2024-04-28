@@ -4,7 +4,7 @@ import ToDoDisplay from "./ToDoDisplay";
 const ToDoApp = () => {
 	return (
 		<div>
-			<Heading text="This is a To Do App" />
+			<Heading additionalClasses="ml-4" text="This is a To Do App" />
 			<ToDoDisplay />
 		</div>
 	);

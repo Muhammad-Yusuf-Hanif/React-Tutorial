@@ -5,7 +5,7 @@ import APIDisplay from "./APIDisplay"
 const API = () => {
   return (
     <div className="mt-8">
-      <Heading text="This is a Weather API"/>
+      <Heading additionalClasses="ml-4" text="This is a Weather API"/>
       <APIDisplay/>
     </div>
   )

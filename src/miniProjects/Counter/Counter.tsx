@@ -5,7 +5,7 @@ function Counter() {
 
 	return (
 		<>
-			<Heading text= 'This is a Counter' />
+			<Heading additionalClasses="ml-4" text= 'This is a Counter' />
 			<CounterButtons />
 		</>
 	);

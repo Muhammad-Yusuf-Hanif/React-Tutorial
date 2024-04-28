@@ -10,11 +10,15 @@ type WeatherInfo = {
 };
 
 const APIDisplay = () => {
-	const [weather, setWeather] = useState<WeatherInfo | null>()
+	const [weather, setWeather] = useState<WeatherInfo | null>();
 	const [city, setCity] = useState("");
 	const [error, setError] = useState("");
 
-	const apiKey = "96ae4f0ff15d3b006deaf259d7638b26";
+	const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+	if (!apiKey) {
+		throw new Error("API key is not defined");
+	}
+
 	const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 	function cityInput(e: ChangeEvent<HTMLInputElement>) {
@@ -37,7 +41,7 @@ const APIDisplay = () => {
 
 				// Check if the error is an instance of Error before calling toString()
 				if (error instanceof Error) {
-					console.log(typeof error.toString()); 
+					console.log(typeof error.toString());
 					setError(error.toString() + " Please enter a valid city");
 				} else {
 					// Handle cases where error might not be an Error object

@@ -63,7 +63,7 @@ function Home() {
 									additionalClasses="w-1/2 md:w-44"
 									text="Gym Website"
 									onClick={() =>
-										(window.location.href = "https://itsagymthing.netlify.app/")
+										window.open("https://itsagymthing.netlify.app/")
 									}
 								/>
 							</div>
@@ -72,15 +72,14 @@ function Home() {
 									additionalClasses="w-1/2 md:w-44"
 									text="Calculator"
 									onClick={() =>
-										(window.location.href = "https://myonlinecalc.netlify.app")
+										window.open("https://myonlinecalc.netlify.app")
 									}
 								/>
 								<Button
 									additionalClasses="w-1/2 md:w-44"
 									text="Weather API"
 									onClick={() =>
-										(window.location.href =
-											"https://api-for-weather.netlify.app")
+										window.open("https://api-for-weather.netlify.app")
 									}
 								/>
 							</div>

@@ -4,7 +4,7 @@ import Heading from "../common/Heading";
 import Text from "../common/Text";
 import ImageLink from "../common/Image";
 import linkedInImg from "../assets/linkedin.png";
-import gitHubIcon from "../assets/githubIcon.gif"
+import gitHubIcon from "../assets/githubIcon.gif";
 
 function Home() {
 	const navigate = useNavigate();
@@ -16,7 +16,7 @@ function Home() {
 	return (
 		<div>
 			<Heading
-				className="font-medium italic pl-16 pt-14 animate-bounce"
+				className="font-medium italic pl-16 mt-14 animate-bounce"
 				size="sm"
 				text="Muhammad Yusuf Hanif"
 			/>
